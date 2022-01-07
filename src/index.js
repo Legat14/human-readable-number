@@ -123,19 +123,18 @@ module.exports = function toReadable(number) {
         }
     }
 
-    // Заменяем один и ноль на десять
-
-    /*if (arrayNumber[arrayNumber.length - 1] === 'zero' && arrayNumber[arrayNumber.length - 2] == 'one') {
-        arrayNumber.pop();
-        arrayNumber[arrayNumber.length - 1] = 'ten';
-}*/
-
 // Убираем непроизносящиеся нули
 
 arrayNumber.forEach((element, i) => {
     if (element === 'zero' && arrayNumber.length !== 1) {
         arrayNumber.splice(i, 1);
     }
+});
+
+arrayNumber.forEach((element, i) => {
+  if (element === 'zero' && arrayNumber.length !== 1) {
+      arrayNumber.splice(i, 1);
+  }
 });
 
 return arrayNumber.join(' ');
