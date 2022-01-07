@@ -76,20 +76,67 @@ module.exports = function toReadable(number) {
         arrayNumber[1] = 'hundred';
     }
 
-    // Заменяем один и ноль на десять
+    // Заменяем один и число на десять, одиннадцать и т. д.
 
-    if (arrayNumber[arrayNumber.length - 1] === 'zero' && arrayNumber[arrayNumber.length - 2] == 'one') {
-        arrayNumber.pop();
-        arrayNumber[arrayNumber.length - 1] = 'ten';
+    if (arrayNumber[arrayNumber.length - 2] == 'one') {
+        switch (arrayNumber[arrayNumber.length - 1]) {
+            case 'zero':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'ten';
+                break;
+            case 'one':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'eleven';
+                break;
+            case 'two':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'twelve';
+                break;
+            case 'three':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'thirteen';
+                break;
+            case 'four':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'fourteen';
+                break;
+            case 'five':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'fifteen';
+                break;
+            case 'six':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'sixteen';
+                break;
+            case 'seven':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'seventeen';
+                break;
+            case 'eight':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'eighteen';
+                break;
+            case 'nine':
+                arrayNumber.pop();
+                arrayNumber[arrayNumber.length - 1] = 'nineteen';
+                break;
+        }
     }
 
-    // Убираем непроизносящиеся нули
+    // Заменяем один и ноль на десять
 
-    arrayNumber.forEach((element, i) => {
-        if (element === 'zero' && arrayNumber.length !== 1) {
-            arrayNumber.splice(i, 1);
-        }
-    });
+    /*if (arrayNumber[arrayNumber.length - 1] === 'zero' && arrayNumber[arrayNumber.length - 2] == 'one') {
+        arrayNumber.pop();
+        arrayNumber[arrayNumber.length - 1] = 'ten';
+}*/
 
-    return arrayNumber.join(' ');
+// Убираем непроизносящиеся нули
+
+arrayNumber.forEach((element, i) => {
+    if (element === 'zero' && arrayNumber.length !== 1) {
+        arrayNumber.splice(i, 1);
+    }
+});
+
+return arrayNumber.join(' ');
 }
