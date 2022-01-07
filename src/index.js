@@ -48,5 +48,11 @@ module.exports = function toReadable(number) {
     arrayNumber[arrayNumber.length - 1] = 'ten';
   }
 
+  arrayNumber.forEach((element, i) => {
+    if(element === 'zero' && arrayNumber.length !== 1) {
+      arrayNumber.splice(i, 1);
+    }
+  });
+
   return arrayNumber.join(' ');
 }
