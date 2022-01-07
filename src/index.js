@@ -42,30 +42,30 @@ module.exports = function toReadable(number) {
 
     // Заменяем десятки (кроме одного десятка)
 
-    switch (arrayNumber[1]) {
+    switch (arrayNumber[arrayNumber.length - 2]) {
         case 'two':
-            arrayNumber[1] = 'twenty';
+            arrayNumber[arrayNumber.length - 2] = 'twenty';
             break;
         case 'three':
-            arrayNumber[1] = 'thirty';
+            arrayNumber[arrayNumber.length - 2] = 'thirty';
             break;
         case 'four':
-            arrayNumber[1] = 'forty';
+            arrayNumber[arrayNumber.length - 2] = 'forty';
             break;
         case 'five':
-            arrayNumber[1] = 'fifty';
+            arrayNumber[arrayNumber.length - 2] = 'fifty';
             break;
         case 'six':
-            arrayNumber[1] = 'sixty';
+            arrayNumber[arrayNumber.length - 2] = 'sixty';
             break;
         case 'seven':
-            arrayNumber[1] = 'seventy';
+            arrayNumber[arrayNumber.length - 2] = 'seventy';
             break;
         case 'eight':
-            arrayNumber[1] = 'eighty';
+            arrayNumber[arrayNumber.length - 2] = 'eighty';
             break;
         case 'nine':
-            arrayNumber[1] = 'ninety';
+            arrayNumber[arrayNumber.length - 2] = 'ninety';
             break;
     }
 
